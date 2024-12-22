@@ -1,6 +1,4 @@
 ﻿<?php
-
-use PharIo\Version\NoPreReleaseSuffixException;
 class Person
 {
     protected $name;
@@ -12,9 +10,10 @@ class Person
         $this->age = $newAge;
     }
 
-public function getName(){
-    return $this->name;
-}
+    public function getName()
+    {
+        return $this->name;
+    }
 
     public function introduce()
     {
@@ -26,15 +25,15 @@ class Teacher extends Person
 {
     private $subject;
 
-    public function __construct($name,$subjectNew)
+    public function __construct($name, $subjectNew)
     {
-        parent::__construct($name,"年齢未設定");
+        parent::__construct($name, "年齢未設定");
         $this->subject = $subjectNew;
     }
 
     public function introduce()
     {
-       return "私は{$this->name}です、{$this->subject}を教えています\n" ;
+        return "私は{$this->name}です、{$this->subject}を教えています\n";
     }
 }
 
@@ -42,9 +41,9 @@ class Student extends Person
 {
     private $studentId;
 
-    public function __construct(Person $personNname,$studentId)
+    public function __construct(Person $personNname, $studentId)
     {
-        parent::__construct($personNname->getName(),"年齢は未設定");
+        parent::__construct($personNname->getName(), "年齢は未設定");
         $this->studentId = $studentId;
     }
 
@@ -59,13 +58,13 @@ class Student extends Person
 $student1 = new Person("横浜流星", 28);
 
 // subjectオブジェクトの作成
-$subject1 = new Teacher("夏目漱石","国語");
+$subject1 = new Teacher("夏目漱石", "国語");
 
 // studentオブジェクトの作成
 $studentId1 = new Student($student1, 22);
 
 
 // 表示
-// echo $student1->introduce();
-// echo $subject1->introduce();
-// echo $studentId1->introduce();
+echo $student1->introduce();
+echo $subject1->introduce();
+echo $studentId1->introduce();
